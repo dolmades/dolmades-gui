@@ -1,0 +1,3 @@
+[submodule "dolmades/udocker"]
+	path = dolmades/udocker
+	url = https://github.com/indigo-dc/udocker
