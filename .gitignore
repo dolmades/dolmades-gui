@@ -4,4 +4,4 @@ moc_*
 build-*
 qrc_*
 Makefile
-dolmades
+dolmades/dolmades
