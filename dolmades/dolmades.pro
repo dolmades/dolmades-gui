@@ -13,8 +13,24 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwidget.cpp
+        mainwidget.cpp\
+	basewidget.cpp\
+        dolmadewidget.cpp\
+        recipewidget.cpp\
+        ingredientwidget.cpp\
+        toolwidget.cpp\
+        helpwidget.cpp\
+        preferenceswidget.cpp\
+        containercmd.cpp
 
-HEADERS  += mainwidget.h
+HEADERS  += mainwidget.h\
+            basewidget.h\
+            dolmadewidget.h\
+            recipewidget.h\
+            ingredientwidget.h\
+            toolwidget.h\
+            helpwidget.h\
+            preferenceswidget.h\
+            containercmd.h
 
 RESOURCES = resources.qrc

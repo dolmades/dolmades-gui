@@ -1,4 +1,6 @@
 #include "mainwidget.h"
+#include "containercmd.h"
+
 #include <QApplication>
 #include <QSystemTrayIcon>
 #include <QIcon>
@@ -26,6 +28,10 @@ int main(int argc, char *argv[])
     QObject::connect(trayIcon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),&w,SLOT(toggle(QSystemTrayIcon::ActivationReason)));
 
     w.show();
+
+    ContainerCmd containerCmd("/usr/bin/python", ":/udocker/udocker.py", &a);
+
+    containerCmd.getContainer();
 
     return a.exec();
 }

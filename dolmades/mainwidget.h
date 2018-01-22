@@ -1,8 +1,10 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWIDGET_H
+#define MAINWIDGET_H
 
 #include <QWidget>
 #include <QSystemTrayIcon>
+#include <QPushButton>
+#include <QList>
 
 class MainWidget : public QWidget
 {
@@ -18,6 +20,7 @@ private:
 public slots:
     void fixPosition();
     void toggle(QSystemTrayIcon::ActivationReason);
+    void setButtonsExclusive();
 };
 
-#endif // MAINWINDOW_H
+#endif
