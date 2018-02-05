@@ -1,31 +1,31 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QPushButton>
+#include <QButtonGroup>
 #include <QLayout>
 #include <QFile>
 #include <QProcess>
 #include <QDebug>
+#include <QSignalMapper>
+#include <QStackedWidget>
 
+#include "basewidget.h"
 #include "mainwidget.h"
-#include "dolmadewidget.h"
-#include "recipewidget.h"
-#include "ingredientwidget.h"
-#include "toolwidget.h"
 
-MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
+MainWidget::MainWidget(QWidget *parent) : QWidget(parent), baseWidget(new BaseWidget())
 {
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
     ws=windowState();
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
     QList<QPushButton*> b = { new QPushButton(this), new QPushButton(this), new QPushButton(this), new QPushButton(this)};
-    QList<QWidget*> w = { new DolmadeWidget(), new RecipeWidget(), new IngredientWidget(), new ToolWidget()};
     QList<QString> iconFN = {":/icons/dolmade.png",":/icons/recipe.png",":/icons/ingredient.png",":/icons/tools.png"};
     QList<QString> iconTT = {"Dolmades","Recipes","Ingredients","Tools"};
-    QList<QWidget*>::iterator wit = w.begin();
     QList<QString>::iterator iconFNit = iconFN.begin();
     QList<QString>::iterator iconTTit = iconTT.begin();
 
+    QButtonGroup *bg = new QButtonGroup(this);
+    bg->setExclusive(true);
     foreach (QPushButton *b, b){
         b->setIcon(QIcon(*iconFNit));
         b->setIconSize(QSize(32,32));
@@ -37,13 +37,14 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
             "QPushButton:hover:!pressed:checked{border: 2px solid gray; background: red;}"
         ));
         b->setFlat(true);
+        bg->addButton(b);
+        connect(b,SIGNAL(toggled(bool)),baseWidget,SLOT(setVisible(bool)));
         connect(b,SIGNAL(pressed()),this,SLOT(setButtonsExclusive()));
-        connect(b,SIGNAL(toggled(bool)),*wit,SLOT(setVisible(bool)));
         mainLayout->addWidget(b);
-        wit++;
         iconFNit++;
         iconTTit++;
     }
+    connect(bg, SIGNAL(buttonClicked(int)), baseWidget, SLOT(setWidget(int)));
     fixPosition();
     connect(QApplication::desktop(), SIGNAL(workAreaResized(int)), this, SLOT(fixPosition()));
 }
@@ -67,9 +68,11 @@ void MainWidget::toggle(QSystemTrayIcon::ActivationReason r)
     if (isVisible()) {
         qDebug()<<"hide";
         hide();
+        baseWidget->hide();
     } else {
         qDebug()<<"show";
         show();
+        // TODO show only if one button is toggled
     }
     qDebug()<<windowState();
     }

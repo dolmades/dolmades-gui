@@ -14,23 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwidget.cpp\
-	basewidget.cpp\
-        dolmadewidget.cpp\
-        recipewidget.cpp\
-        ingredientwidget.cpp\
-        toolwidget.cpp\
-        helpwidget.cpp\
-        preferenceswidget.cpp\
-        containercmd.cpp
+        containercmd.cpp \
+    basewidget.cpp
 
 HEADERS  += mainwidget.h\
-            basewidget.h\
-            dolmadewidget.h\
-            recipewidget.h\
-            ingredientwidget.h\
-            toolwidget.h\
-            helpwidget.h\
-            preferenceswidget.h\
-            containercmd.h
+            containercmd.h \
+    basewidget.h
 
 RESOURCES = resources.qrc
+
+FORMS += \
+    basewidget.ui

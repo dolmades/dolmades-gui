@@ -16,6 +16,7 @@ public:
 
 private:
     Qt::WindowStates ws; // needed for working around workspaces bug
+    QWidget* baseWidget;
 
 public slots:
     void fixPosition();
