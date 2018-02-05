@@ -17,11 +17,11 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwidget.cpp\
         containercmd.cpp \
-    basewidget.cpp
+        basewidget.cpp
 
 HEADERS  += mainwidget.h\
             containercmd.h \
-    basewidget.h
+            basewidget.h
 
 RESOURCES = resources.qrc
 
