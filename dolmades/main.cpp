@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 
     ContainerCmd containerCmd("/usr/bin/python", ":/udocker/udocker.py", &a);
 
-    containerCmd.getContainer();
+    containerCmd.exec(QStringList()<<"ps");
 
     return a.exec();
 }

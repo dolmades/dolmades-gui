@@ -16,9 +16,7 @@ public:
     explicit ContainerCmd(QString, QString, QObject *);
     ~ContainerCmd();
 
-    void help();
-    void wineexec();
-    void getContainer();
+    void exec(const QStringList &);
 
 private:
     QTemporaryDir workdir;

@@ -14,7 +14,7 @@
 
 MainWidget::MainWidget(QWidget *parent) : QWidget(parent), baseWidget(new BaseWidget())
 {
-    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
+    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
     ws=windowState();
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 

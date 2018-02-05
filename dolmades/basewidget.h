@@ -13,6 +13,7 @@ public:
     ~BaseWidget();
 public slots:
     void setWidget(int);
+    void fixPosition();
 };
 
 #endif // BASEWIDGET_H

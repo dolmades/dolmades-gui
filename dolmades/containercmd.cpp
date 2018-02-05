@@ -4,20 +4,33 @@
 
 ContainerCmd::ContainerCmd(QString pyInterpreter, QString pyCmd, QObject* parent) : QObject(parent)
 {
-    qDebug()<<workdir.path();
+    QString repoPath = QDir::homePath() + "/.dolmades/repo";
 
     proc = new QProcess();
     proc->setProgram(pyInterpreter);
-    stdArg << "-" << QString("--repo=%1/.dolmades/repo").arg(QDir::homePath());
-
     script = new QFile(pyCmd);
     script->open(QFile::ReadOnly | QFile::Text);
+
+    if (!QDir().exists(repoPath)) {
+        proc->setArguments( QStringList() << "-" << "mkrepo" << repoPath );
+        qDebug()<< "creating repoPath " << repoPath << " ...";
+        proc->start();
+        proc->waitForStarted();
+        proc->write(script->readAll());
+        proc->closeWriteChannel();
+        proc->waitForFinished();
+        qDebug()<< "...done!";
+    } else {
+        qDebug()<< "repoPath " << repoPath << " found";
+    }
+
+    stdArg << "-" << QString("--repo=%1").arg(repoPath);
 }
 
-void ContainerCmd::help()
+void ContainerCmd::exec(const QStringList & args)
 {
     QStringList arg = stdArg;
-    arg << "help";
+    arg << args;
     proc->setArguments(arg);
     proc->start();
     proc->waitForStarted();
@@ -28,6 +41,7 @@ void ContainerCmd::help()
     qDebug()<<proc->readAllStandardError();
 }
 
+/*
 void ContainerCmd::wineexec()
 {
     // ./udocker.py run --user dolmades --hostenv --bindhome 726f7451-0096-3591-b889-c7669f51b809 winecfg
@@ -57,6 +71,7 @@ void ContainerCmd::getContainer()
     qDebug()<<proc->readAllStandardError();
     qDebug()<<arg;
 }
+*/
 
 ContainerCmd::~ContainerCmd()
 {
