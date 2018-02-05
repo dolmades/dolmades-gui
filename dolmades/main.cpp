@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     trayIcon->setContextMenu(menu);
     trayIcon->show();
     trayIcon->setToolTip(QObject::tr("Dolmades - windows apps in linux containers"));
-    QObject::connect(trayIcon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),&w,SLOT(toggle(QSystemTrayIcon::ActivationReason)));
+    QObject::connect(trayIcon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),&w,SLOT(onToggle(QSystemTrayIcon::ActivationReason)));
 
     w.show();
 

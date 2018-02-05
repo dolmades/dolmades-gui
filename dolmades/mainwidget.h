@@ -1,10 +1,11 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include <QWidget>
 #include <QSystemTrayIcon>
 #include <QPushButton>
 #include <QList>
+
+#include "basewidget.h"
 
 class MainWidget : public QWidget
 {
@@ -16,12 +17,12 @@ public:
 
 private:
     Qt::WindowStates ws; // needed for working around workspaces bug
-    QWidget* baseWidget;
+    BaseWidget* baseWidget;
 
 public slots:
     void fixPosition();
-    void toggle(QSystemTrayIcon::ActivationReason);
-    void setButtonsExclusive();
+    void onToggle(QSystemTrayIcon::ActivationReason);
+    //void showEvent(QShowEvent *);
 };
 
 #endif

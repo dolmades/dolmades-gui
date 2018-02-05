@@ -8,5 +8,7 @@
         <file>icons/help.png</file>
         <file>icons/preferences.png</file>
         <file>udocker/udocker.py</file>
+        <file>icons/remove.png</file>
+        <file>icons/add.png</file>
     </qresource>
 </RCC>

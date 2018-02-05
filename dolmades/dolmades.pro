@@ -25,5 +25,4 @@ HEADERS  += mainwidget.h\
 
 RESOURCES = resources.qrc
 
-FORMS += \
-    basewidget.ui
+FORMS += basewidget.ui
