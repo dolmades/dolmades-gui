@@ -25,24 +25,26 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), baseWidget(new BaseWi
     QList<QString>::iterator iconTTit = iconTT.begin();
 
     QButtonGroup *bg = new QButtonGroup(this);
+    int bid = 0;
     bg->setExclusive(true);
     foreach (QPushButton *b, b){
         b->setIcon(QIcon(*iconFNit));
         b->setIconSize(QSize(32,32));
         b->setToolTip(*iconTTit);
         b->setCheckable(true);
-        b->setAutoExclusive(true);
+        //b->setAutoExclusive(true);
         b->setStyleSheet(QString(
             "QPushButton:hover:!pressed:!checked{border: 2px solid gray; background: yellow;}"
             "QPushButton:hover:!pressed:checked{border: 2px solid gray; background: red;}"
         ));
         b->setFlat(true);
-        bg->addButton(b);
+        bg->addButton(b,bid);
         connect(b,SIGNAL(toggled(bool)),baseWidget,SLOT(setVisible(bool)));
         connect(b,SIGNAL(pressed()),this,SLOT(setButtonsExclusive()));
         mainLayout->addWidget(b);
         iconFNit++;
         iconTTit++;
+        bid++;
     }
     connect(bg, SIGNAL(buttonClicked(int)), baseWidget, SLOT(setWidget(int)));
     fixPosition();
