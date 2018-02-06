@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <QCloseEvent>
 
+#include "ui_basewidget.h"
 #include "basewidget.h"
 
 BaseWidget::BaseWidget(QWidget* parent) : QWidget(parent), ui(new Ui::baseWidget) {

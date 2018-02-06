@@ -3,7 +3,10 @@
 
 #include <QWidget>
 #include <QSystemTrayIcon>
-#include "ui_basewidget.h"
+
+namespace Ui {
+class baseWidget;
+}
 
 class BaseWidget : public QWidget {
     Q_OBJECT
