@@ -26,3 +26,7 @@ HEADERS  += mainwidget.h\
 RESOURCES = resources.qrc
 
 FORMS += basewidget.ui
+
+DISTFILES += \
+    icons/search.png \
+    icons/search.png

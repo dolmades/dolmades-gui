@@ -23,6 +23,9 @@
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="4">
         <widget class="QToolButton" name="toolButton">
+         <property name="toolTip">
+          <string>remove a dolmade...</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -48,32 +51,29 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Dolmades</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dolmades&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="6">
-        <widget class="QScrollArea" name="scrollArea">
-         <property name="autoFillBackground">
-          <bool>true</bool>
+       <item row="0" column="2">
+        <widget class="QToolButton" name="toolButton_3">
+         <property name="toolTip">
+          <string>run a dolmade...</string>
          </property>
-         <property name="widgetResizable">
-          <bool>true</bool>
+         <property name="text">
+          <string>...</string>
          </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>531</width>
-            <height>293</height>
-           </rect>
-          </property>
-         </widget>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/run.png</normaloff>:/icons/run.png</iconset>
+         </property>
         </widget>
        </item>
        <item row="0" column="3">
         <widget class="QToolButton" name="toolButton_2">
+         <property name="toolTip">
+          <string>add a dolmade...</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -83,28 +83,53 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QToolButton" name="toolButton_3">
-         <property name="text">
-          <string>...</string>
+       <item row="1" column="0" colspan="5">
+        <widget class="QListWidget" name="dolmadesListWidget">
+         <property name="movement">
+          <enum>QListView::Snap</enum>
          </property>
-         <property name="icon">
-          <iconset resource="resources.qrc">
-           <normaloff>:/icons/update.png</normaloff>:/icons/update.png</iconset>
+         <property name="resizeMode">
+          <enum>QListView::Adjust</enum>
          </property>
+         <property name="gridSize">
+          <size>
+           <width>128</width>
+           <height>128</height>
+          </size>
+         </property>
+         <property name="viewMode">
+          <enum>QListView::IconMode</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>winehq-stable</string>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;recipe&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;: &lt;/span&gt;winehq-stable&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;ingredients&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;: &lt;/span&gt;&lt;/p&gt;&lt;p&gt;docker://dolmades/winehq-stable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/dolmade_green.png</normaloff>:/icons/dolmade_green.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>winehq-devel</string>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;base:&lt;/span&gt; dolmades/winehq-devel&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;recipe: none&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ingredients: none&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/dolmade_green.png</normaloff>:/icons/dolmade_green.png</iconset>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
      </widget>
      <widget class="QWidget" name="recipesWidget">
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Recipes</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
@@ -118,17 +143,75 @@
          </property>
         </spacer>
        </item>
+       <item row="0" column="3">
+        <widget class="QToolButton" name="toolButton_5">
+         <property name="toolTip">
+          <string>add a recipe...</string>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Recipes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QToolButton" name="toolButton_4">
+         <property name="toolTip">
+          <string>delete a recipe...</string>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QToolButton" name="toolButton_6">
+         <property name="toolTip">
+          <string>cook a recipe...</string>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/cook.png</normaloff>:/icons/cook.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="5">
+        <widget class="QListWidget" name="recipesListWidget">
+         <property name="resizeMode">
+          <enum>QListView::Adjust</enum>
+         </property>
+         <property name="gridSize">
+          <size>
+           <width>128</width>
+           <height>128</height>
+          </size>
+         </property>
+         <property name="viewMode">
+          <enum>QListView::IconMode</enum>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="ingredientsWidget">
       <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Ingredients</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
@@ -141,6 +224,62 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="0" column="4">
+        <widget class="QToolButton" name="toolButton_7">
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ingredients&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QToolButton" name="toolButton_9">
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/search.png</normaloff>:/icons/search.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QToolButton" name="toolButton_8">
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="5">
+        <widget class="QListWidget" name="ingredientsListWidget">
+         <property name="resizeMode">
+          <enum>QListView::Adjust</enum>
+         </property>
+         <property name="gridSize">
+          <size>
+           <width>128</width>
+           <height>128</height>
+          </size>
+         </property>
+         <property name="viewMode">
+          <enum>QListView::IconMode</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -189,6 +328,31 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="1" column="1">
+        <widget class="QListWidget" name="listWidget">
+         <property name="viewMode">
+          <enum>QListView::IconMode</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>wine3.1</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/dolmade_green.png</normaloff>:/icons/dolmade_green.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>wine3.1-dev</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/dolmade_green.png</normaloff>:/icons/dolmade_green.png</iconset>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </widget>

@@ -7,6 +7,7 @@
 
 BaseWidget::BaseWidget(QWidget* parent) : QWidget(parent), ui(new Ui::baseWidget) {
     ui->setupUi(this);
+    setAttribute(Qt::WA_AlwaysShowToolTips);
     setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint);
     connect(QApplication::desktop(), SIGNAL(workAreaResized(int)), this, SLOT(fixPosition()));
     fixPosition();
