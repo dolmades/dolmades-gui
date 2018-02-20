@@ -17,11 +17,19 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwidget.cpp\
         containercmd.cpp \
-        basewidget.cpp
+        basewidget.cpp \
+    dolmade.cpp \
+    ingredient.cpp \
+    recipe.cpp
 
 HEADERS  += mainwidget.h\
             containercmd.h \
-            basewidget.h
+            basewidget.h \
+    dolmade.h \
+    ingredient.h \
+    recipe.h \
+    blob.h \
+    descriptor.h
 
 RESOURCES = resources.qrc
 

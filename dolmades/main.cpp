@@ -9,6 +9,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    QCoreApplication::setOrganizationName("Dolmades");
+    QCoreApplication::setOrganizationDomain("dolmades.org");
+    QCoreApplication::setApplicationName("Dolmades");
+
     MainWidget w;
     QSystemTrayIcon *trayIcon = new QSystemTrayIcon();
     QMenu *menu = new QMenu();
