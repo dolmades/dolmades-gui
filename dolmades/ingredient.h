@@ -9,12 +9,16 @@
 #include "blob.h"
 
 class Ingredient {
-public:
+private:
     Descriptor descriptor;
     QList<Blob*> blobs;
     QByteArray hash;
 
-   Ingredient(const Descriptor &);
+public:
+    const QByteArray& getHash() const {return hash;}
+    const Descriptor& getDescriptor() const {return descriptor;}
+    void setDescriptor(const Descriptor& desc) {descriptor=desc;}
+    Ingredient(const Descriptor &);
 
    void addBlob(const QString& fileName, const QByteArray& hash, qlonglong sizeInBytes, bool exec = false);
    void addBlob(const QString& fileName);

@@ -11,17 +11,17 @@ Recipe::Recipe(const Descriptor& desc, const QString& script, const QString& suS
 }
 
 void Recipe::addIngredient(const Ingredient& ingr) {
-    Ingredient *i = new Ingredient(ingr.descriptor);
+    Ingredient *i = new Ingredient(ingr.getDescriptor());
     *i = ingr;
     ingredients.append(i);
-    descriptor.sizeInBytes += ingr.descriptor.sizeInBytes;
+    descriptor.sizeInBytes += ingr.getDescriptor().sizeInBytes;
 }
 
 bool Recipe::delIngredient(const QByteArray& hash) {
     for (int i=0; i<ingredients.size(); i++) {
         Ingredient *in = ingredients.at(i);
-        if (in->hash == hash) {
-            descriptor.sizeInBytes -= in->descriptor.sizeInBytes;
+        if (in->getHash() == hash) {
+            descriptor.sizeInBytes -= in->getDescriptor().sizeInBytes;
             ingredients.removeAt(i);
             delete in;
             return true;

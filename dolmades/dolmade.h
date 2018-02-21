@@ -6,15 +6,13 @@
 
 #include "descriptor.h"
 #include "blob.h"
-#include "ingredient.h"
-#include "recipe.h"
 
 class Dolmade {
 private:
     Descriptor descriptor;
     QByteArray baseImageHash;
-    QMultiMap<Ingredient*,Recipe*> supportedIngredients;
-    QMultiMap<Recipe*,Ingredient*> supportedRecipes;
+    QList<QByteArray> supportedIngredients;
+    QList<QByteArray> supportedRecipes;
 
 public:
     Dolmade(const Descriptor&);

@@ -11,6 +11,7 @@ public:
     Blob superUserScriptFile;
     Blob userScriptFile;
     QList<Ingredient*> ingredients;
+    QList<QByteArray> supportedIngredients;
 
     Recipe(const Descriptor& desc, const QString& script = QString::null, const QString& suScript = QString::null);
 
