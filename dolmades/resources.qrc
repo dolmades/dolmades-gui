@@ -14,5 +14,6 @@
         <file>icons/run.png</file>
         <file>icons/cook.png</file>
         <file>icons/search.png</file>
+        <file>dolmades.db</file>
     </qresource>
 </RCC>
