@@ -6,3 +6,4 @@ qrc_*
 Makefile
 dolmades/dolmades
 dolmades/ui_*.h
+dolmades/dolmades.db
