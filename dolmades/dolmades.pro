@@ -9,6 +9,11 @@ QT       += core gui
 CONFIG += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+system("rm dolmades.db")
+system("sqlite3 dolmades.db < schema.sql")
+system("./mksqlcfg.sh")
+system("sqlite3 dolmades.db < config.sql.tmp")
+system("rm config.sql.tmp")
 
 TARGET = dolmades
 TEMPLATE = app
@@ -29,7 +34,8 @@ HEADERS  += mainwidget.h\
     ingredient.h \
     recipe.h \
     blob.h \
-    descriptor.h
+    descriptor.h \
+    globals.h
 
 RESOURCES = resources.qrc
 
